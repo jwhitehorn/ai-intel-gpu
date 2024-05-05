@@ -9,6 +9,7 @@ Docker image for easily running AI workloads on Intel GPUs
 
 Many AI-focused python packages already installed, including:
 
+```
 Package                     Version
 --------------------------- ----------------------
 accelerate                  0.21.0
@@ -35,3 +36,4 @@ torch                       2.1.0.post0+cxx11.abi
 torchaudio                  2.1.0.post0+cxx11.abi
 torchvision                 0.16.0.post0+cxx11.abi
 transformers                4.36.2
+```
