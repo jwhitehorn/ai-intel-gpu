@@ -1,7 +1,7 @@
 #!/bin/bash
 
 if [ ! -f /root/.already_ran ]; then
-	echo "Welcome to ithe AI (Intel GPU) shell"
+	echo "Welcome to the AI (Intel GPU) shell"
 	echo "For more information visit: https://github.com/jwhitehorn/ai-intel-gpu"
 	echo ""
 	echo "The following SYCL devices have been discovered:"
