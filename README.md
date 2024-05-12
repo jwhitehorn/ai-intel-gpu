@@ -27,7 +27,7 @@ Once configured, you can launch directly into this AI-centric environment by exe
 ```
 $./ai-shell.sh
 Launching AI (Intel GPU) Shell...
-Welcome to ithe AI (Intel GPU) shell
+Welcome to the AI (Intel GPU) shell
 For more information visit: https://github.com/jwhitehorn/ai-intel-gpu
 
 The following SYCL devices have been discovered:
