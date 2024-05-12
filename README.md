@@ -1,27 +1,28 @@
-Docker image for easily running AI workloads on Intel GPUs
+# Docker Image for Running AI Workloads on Intel GPUs
 
-### Included Software
+## Included Software
 
-* Python 3.10.12
-* Intel oneAPI 2024.1.0
-* Intel Extensions for Transformers
-* Intel Extensions for PyTorch 2.1.20+xpu
-* Hugging Face CLI
+- Python 3.10.12
+- Intel oneAPI 2024.1.0
+- Intel Extensions for Transformers
+- Intel Extensions for PyTorch 2.1.20+xpu
+- Hugging Face CLI
 
-### Getting Started
+## Getting Started
 
-The idea behind this docker image is to allow you to run a shell inside a container that is already setup and configured with all the libraries needed to get right to work with AI workloads on Intel GPUs.
+The purpose of this Docker image is to provide a convenient environment for running AI workloads on Intel GPUs. It comes pre-configured with all the necessary libraries, allowing you to dive straight into your projects.
 
-This github repo has a sample script called ai-shell.sh than can be copied locally and used as a foundation for your own version. 
+Within this GitHub repository, you'll find a sample script named `ai-shell.sh`, which can be copied and used as a starting point for your own setup.
 
-There are three placeholders you will need to configure at minimum, but you free to extended this script to your choosing. Those three placeholders are:
+To use the script, there are three placeholders you must configure:
 
-* LOCAL_PATH_PLACEHOLDER - this placeholder should be replaced with a path on your local filesystem that will be mounted within this container. This path will serve as your default working directly in the container, and will be where you house all your scripts and data between shell sessions. For example, if your username is `jason` and you have an `ai` folder in your home directory, this paceholder might be replaced with `/home/jason/ai`
-* HUGGING_FACE_API_KEY_PLACEHOLDER - This is your Hugging Face API key that you can get from [here](https://huggingface.co/settings/tokens). Feel free to remove this environmental variable if you do not use Hugging Face.
-* HUGGING_FACE_CACHE_PLACEHOLDER - All data and changes created during shell sessions is deleted unless stored on a mounted path (see LOCAL_PATH_PLACEHOLDER), therefore when using Hugging Face it's important to ensure that it stores its data somewhere that is persistent. For example, if LOCAL_PATH_PLACEHOLDER is `/users/jason/ai`, I might want to keep my Hugging Face cache within a subfolder of that, say `huggingface.cache`, so for this placeholder you'd use `/ai/models/huggingface.cache/`.
+1. **LOCAL_PATH_PLACEHOLDER**: This placeholder should be replaced with a path on your local filesystem. This path will be mounted within the container and serve as your default working directory. For example, if your username is `jason` and you have an `ai` folder in your home directory, this placeholder might be replaced with `/home/jason/ai`.
 
+2. **HUGGING_FACE_API_KEY_PLACEHOLDER**: This is your Hugging Face API key, which you can obtain from [here](https://huggingface.co/settings/tokens). If you don't use Hugging Face, feel free to remove this environmental variable.
 
-Once configured, you can launch directly into this AI-centric environment by executing it:
+3. **HUGGING_FACE_CACHE_PLACEHOLDER**: All data and changes created during shell sessions are deleted unless stored on a mounted path (see `LOCAL_PATH_PLACEHOLDER`). Therefore, when using Hugging Face, ensure it stores its data somewhere persistent. For example, if `LOCAL_PATH_PLACEHOLDER` is `/users/jason/ai`, you might want to keep your Hugging Face cache within a subfolder such as `/ai/models/huggingface.cache/`.
+
+Once configured, you can launch directly into this AI-centric environment by executing:
 
 ```
 $./ai-shell.sh
