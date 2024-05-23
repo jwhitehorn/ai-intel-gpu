@@ -39,3 +39,30 @@ The following SYCL devices have been discovered:
 root@de44f10a6cf1:/ai#
 ```
 
+## Host Configuration
+If you do not see a Level-Zero device in the output above, or if docker fails to run due to /dev/dri not existing, then likely your host environment is not setup correctly. While most configuration has been abstracted by this container, a minimal amount of host configuration is necessary to ensure that Docker itself can see the GPU.
+
+On debian:
+
+### 1. Install the Intel Non-Free Drivers
+```
+apt install intel-media-va-driver-non-free
+```
+
+### 2. Install the 6.8.4 Kernel
+Due to [breaking changes](https://github.com/intel/compute-runtime/issues/726) Linux Kernel 6.8.4 is the most recent Kernel version recommended at this time. To install this kernel version you can use Zabbly:
+
+```
+apt install lsb-release software-properties-common apt-transport-https ca-certificates curl -y
+curl -fSsL https://pkgs.zabbly.com/key.asc | gpg --dearmor | tee /usr/share/keyrings/linux-zabbly.gpg > /dev/null
+codename=$(lsb_release -sc) && echo deb [arch=amd64,arm64 signed-by=/usr/share/keyrings/linux-zabbly.gpg] https://pkgs.zabbly.com/kernel/stable $codename main | tee /etc/apt/sources.list.d/linux-zabbly.list
+apt update
+apt install linux-image-6.8.4-zabbly+
+```
+
+### 3. Install Intel GPU Tools (optional)
+While not necessary, you may find it convenient to install the Intel GPU Tools on the host so that you have easy access to tools like `intel_gpu_top`. To install these tools, simply run:
+
+```
+apt install intel-gpu-tools
+```
