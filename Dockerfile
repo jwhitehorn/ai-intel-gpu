@@ -12,7 +12,7 @@ RUN apt-get update && \
 RUN CMAKE_ARGS="-DLLAMA_SYCL=on -DCMAKE_CXX_COMPILER=icpx -DLLAMA_SYCL_F16=ON" pip3 install llama-cpp-python==0.2.76 --force-reinstall --upgrade --no-cache-dir
 
 RUN cd /etc && wget -O llama.cpp.tar.gz "https://github.com/ggerganov/llama.cpp/archive/refs/tags/b3070.tar.gz" && \
-    tar -xvzf llama.cpp.tar.gz && mv llama.cpp-b3070/ llama.cpp && rm llama.cpp.tar.gz && \
+    tar -xvzf llama.cpp.tar.gz && mv llama.cpp-b3070/ llama.cpp && rm llama.cpp.tar.gz &&  cd llama.cpp && \
     cmake -B build -DLLAMA_SYCL=ON -DCMAKE_C_COMPILER=icx -DCMAKE_CXX_COMPILER=icpx -DLLAMA_SYCL_F16=ON && \
     cmake --build build --config Release -j -v
 
