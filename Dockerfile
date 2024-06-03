@@ -9,7 +9,7 @@ RUN apt-get update && \
 		       intel-oneapi-dpcpp-cpp-2024.1=2024.1.0-963 intel-oneapi-mkl-devel=2024.1.0-691 intel-oneapi-ccl-devel=2021.12.0-309
 
 
-RUN CMAKE_ARGS="-DLLAMA_SYCL=on -DCMAKE_CXX_COMPILER=icpx -DLLAMA_SYCL_F16=ON" pip3 install llama-cpp-python==0.2.74 --force-reinstall --upgrade --no-cache-dir
+RUN CMAKE_ARGS="-DLLAMA_SYCL=on -DCMAKE_CXX_COMPILER=icpx -DLLAMA_SYCL_F16=ON" pip3 install llama-cpp-python==0.2.76 --force-reinstall --upgrade --no-cache-dir
 
 RUN cd /etc && wget -O llama.cpp.tar.gz "https://github.com/ggerganov/llama.cpp/archive/refs/tags/b3070.tar.gz" && \
     tar -xvzf llama.cpp.tar.gz && mv llama.cpp-b3070/ llama.cpp && rm llama.cpp.tar.gz && \
