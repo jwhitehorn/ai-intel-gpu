@@ -36,7 +36,8 @@ RUN pip3 install torch==2.1.0.post0 \
                 termcolor \
                 datasets \
                 trl \
-                peft
+                peft \
+                notebook
 
 # RUN python -m pip install torch==2.1.0.post0 torchvision==0.16.0.post0 torchaudio==2.1.0.post0 intel-extension-for-pytorch==2.1.20+xpu oneccl_bind_pt==2.1.200+xpu --extra-index-url https://pytorch-extension.intel.com/release-whl/stable/xpu/us/
 RUN ln -s /usr/bin/python3 /usr/bin/python
